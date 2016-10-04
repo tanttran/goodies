@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request');
+// var request = require('request');
 var bodyParser = require('body-parser');
 var textParser = bodyParser.json();
 var Yelp = require ('yelp');
