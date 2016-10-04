@@ -19,10 +19,9 @@ router.post('/search', function(req, res){
   // var searchInput = JSON.parse(searchResponse);
   yelp.search(searchResponse)
   .then(function(result) {
-    console.log('Query Search..');
+    console.log('Yelp Search Initiated');
     res.send(result);
-    console.log(result);
-
+    // console.log(result);
   });
 });
 

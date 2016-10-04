@@ -17,11 +17,33 @@ app.config(function($routeProvider, $locationProvider) {
     redirectTo: '/404'
   });
 
-      $locationProvider.html5Mode(true);
-    });
+  $locationProvider.html5Mode(true);
+});
 
 
 app.controller('HomeController', function($scope, $http) {
+
+  $scope.searchYelp = function() {
+    $http({
+      method: "POST",
+      url: "/yelp/search",
+      data: {
+        term: $scope.goodies,
+        location: $scope.location,
+        limit: 1
+      }
+
+    })
+    .success(function(data){
+      $scope.response = data;
+      console.log(data);
+    })
+    .error(function(data){
+      console.log(data);
+    });
+  };
+
+
 
 
 });
@@ -29,21 +51,21 @@ app.controller('HomeController', function($scope, $http) {
 
 
 
+
 app.controller('SignupController', function($scope, $http) {
+
   $scope.userSignup = function() {
 
     var newUser = {
-      firstname: $scope.firstname,
-      lastname: $scope.lastname,
       username: $scope.username,
       password: $scope.password,
+      password2: $scope.retypePassword,
       email: $scope.email
     };
-
     console.log(newUser);
-    
-    $http.post('/users', newUser).then(function (){
+    $http.post('/users/signup', newUser).success(function (data){
       alert('signup success');
+
     });
   };
 });

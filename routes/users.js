@@ -2,22 +2,26 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/goodies", function(err, dbconn) {
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/goodies", function(err) {
   if(!err) {
     console.log("MONGOOSE connected");
   }
 });
 
-var Users = mongoose.model('users', { 
+var userSchema = new mongoose.Schema({
   username: String,
   password: String,
   email: String,
   created: { type: Date, default: Date.now }
+
 });
 
+var User = mongoose.model('users', userSchema);
 
-router.post('/users', function(req, res, next){
-  var newUser = new Users({ 
+
+router.post('/signup', function(req, res, next){
+  var newUser = new User({
     username: req.body.username,
     password: req.body.password,
     email: req.body.email 
