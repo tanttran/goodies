@@ -4,6 +4,7 @@ var yelpSearch = require('./routes/yelp.js');
 var users = require('./routes/users.js');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var jwt = require('jwt-simple');
 
 var path = require('path');
 app.use(bodyParser.json());
