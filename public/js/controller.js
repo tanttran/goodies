@@ -70,6 +70,17 @@ app.controller('HomeController', function($rootScope, $scope, $http, $cookies) {
       });
   };
 
+
+  $scope.userLogout = function() {
+    $cookies.remove('token');
+    $cookies.remove('currentUser');
+    $rootScope.token = null;
+    $rootScope.currentUser = null;
+    $scope.username = '';
+    $scope.password = '';
+  };
+ 
+
  
 
 

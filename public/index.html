@@ -50,12 +50,19 @@
           <li class="active navList"><a class="navText" href="#">About</a></li>
           <li class="navList" ng-hide="currentUser"><a class="navText" href="/signup">Sign up</a></li>
           <li class="navList" data-target="#loginModal" data-toggle="modal" ng-hide="currentUser"><a class="navText" href="#">Log in</a></li>
+
+          <li class="navList" ng-show="currentUser"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" data-toggle="dropdown"   aria-hidden="true">{{ currentUser }}</span>
+            <ul class="dropdown-menu">
+              <li class="user-logout"><a href="/" ng-click="userLogout()" data-dismiss="modal">Log out</a></li>
+              <li class="#"><a href="#">Edit Profile</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
 
-      <div class="col-sm-1" ng-show="currentUser">
+      <!-- <div class="col-sm-1" ng-show="currentUser">
         <span class="glyphicon glyphicon-user user-icon" aria-hidden="true"> {{ currentUser }}</span>
-      </div>
+      </div> -->
 
     </div> <!-- End Container -->
   </div> <!-- End Navbar -->
@@ -84,7 +91,7 @@
                   </div>
                   <br><br>
                   <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">Login</button>
+                    <button class="btn btn-primary" type="submit" id="modal-login">Login</button>
                     <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
                   </div>
                 </form>
