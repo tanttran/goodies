@@ -27,14 +27,14 @@
         <a href="/" class="navbar-brand">Goodies</a>
       </div> <!-- Navbar header -->
 
-      <div class="col-sm-6 col-sm-6"> <!-- Navbar searches -->
+      <div class="col-md-6 col-sm-6"> <!-- Navbar searches -->
         <form class="navbar-form" role="search" ng-submit="searchYelp()">
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-4">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Name your Goodies" ng-model="goodies" name="srch-term" id="srch-term">
+              <input type="text" class="form-control" placeholder="Name the Goodies" ng-model="goodies" name="srch-term" id="srch-term">
             </div>
           </div>
-          <div class="col-sm-5">
+          <div class="col-md-6">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="City, State" ng-model="location" name="srch-term" id="srch-term">
               <div class="input-group-btn">
@@ -45,15 +45,30 @@
         </form>
       </div> <!-- End Navbar searches -->
       
-      <div class="col-sm-3 navbar-collapse collapse" id="navbar-collapse">
+      <div class="col-sm-5 navbar-collapse collapse" id="navbar-collapse">
         <ul class="nav navbar-nav mainNav">
-          <li class="active navList"><a class="navText" href="#">About</a></li>
+          <li class="active navList"><a class="navText" href="/">About</a></li>
           <li class="navList" ng-hide="currentUser"><a class="navText" href="/signup">Sign up</a></li>
-          <li class="navList" data-target="#loginModal" data-toggle="modal" ng-hide="currentUser"><a class="navText" href="#">Log in</a></li>
+          <li class="navList" data-target="#loginModal" data-toggle="modal" ng-hide="currentUser"><a class="navText" href="/">Log in</a></li>
 
-          <li class="navList" ng-show="currentUser"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" data-toggle="dropdown"   aria-hidden="true">{{ currentUser }}</span>
+          <li class="navList" ng-show="currentUser"><a class="navText" data-toggle="dropdown" href="#">Foods</a>
+          <ul class="dropdown-menu">
+              <li class="#" ng-show="currentUser"><a class="#" href="#">Popular</a></li>
+              <li class="#" ng-show="currentUser"><a class="#" href="#">Newest</a></li>
+            </ul>
+          </li>
+          <li class="navList" ng-show="currentUser"><a class="navText" data-toggle="dropdown" href="#">Drinks</a>
             <ul class="dropdown-menu">
-              <li class="user-logout"><a href="/" ng-click="userLogout()" data-dismiss="modal">Log out</a></li>
+              <li class="#" ng-show="currentUser"><a class="#" href="#">Popular</a></li>
+              <li class="#" ng-show="currentUser"><a class="#" href="#">Newest</a></li>
+            </ul>
+          </li>
+
+          <!-- <li class="navList" ng-show="currentUser"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" data-toggle="dropdown"   aria-hidden="true"> {{ currentUser }}</span> -->
+
+          <li class="navList" ng-show="currentUser"><a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" aria-hidden="true"></span> {{ currentUser }}</a>
+            <ul class="dropdown-menu">
+              <li class="user-logout"><a href="/" ng-click="userLogout()">Log out</a></li>
               <li class="#"><a href="#">Edit Profile</a></li>
             </ul>
           </li>
@@ -65,9 +80,10 @@
       </div> -->
 
     </div> <!-- End Container -->
+
   </div> <!-- End Navbar -->
 
-  <div class="container">
+  <div class="container"> <!--Login Modal -->
     <div class="row">
       <div class="col-xs-12">
 
@@ -102,7 +118,7 @@
 
       </div>
     </div>
-  </div>
+  </div> <!-- End Modal -->
 
   <div ng-view></div>
 

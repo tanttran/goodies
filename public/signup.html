@@ -1,5 +1,5 @@
 <div class="well">
-<form class="" ng-submit="userSignup()">
+<form class="" ng-submit="userSignup()" name="form">
     <div class="input-group" id="signupUsername">
       <input class="form-control" type="text" size="30" placeholder="Username" ng-model="username">
     </div>
@@ -8,8 +8,9 @@
       <input class="form-control" type="password" size="30" placeholder="Password" ng-model="password">
     </div>
     <br>
-    <div class="input-group" id="retypePassword">
-      <input class="form-control" type="password" size="30" placeholder="Retype Password" ng-model="retypePassword">
+    <div class="input-group" id="confirmPassword">
+      <input class="form-control" type="password" size="30" placeholder="Confirm Password" ng-model="confirmPassword" nx-equal="password" name="verify">
+      <span ng-show="form.verify.$error.nxEqual">Must be equal!</span>
     </div>
     <br>
     <div class="input-group" id="signupEmail">
