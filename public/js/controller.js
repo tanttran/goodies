@@ -6,6 +6,14 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: 'home.html',
     controller: 'HomeController',
   })
+  .when('/profile', {
+    templateUrl: 'userprofile.html',
+    controller: 'HomeController',
+  })
+  .when('/secret', {
+    templateUrl: 'secretmenu.html',
+    controller: 'HomeController',
+  })
   .when('/signup', {
     templateUrl: 'signup.html',
     controller: 'SignupController',
@@ -70,7 +78,6 @@ app.controller('HomeController', function($rootScope, $scope, $http, $cookies) {
       });
   };
 
-
   $scope.userLogout = function() {
     $cookies.remove('token');
     $cookies.remove('currentUser');
@@ -79,11 +86,9 @@ app.controller('HomeController', function($rootScope, $scope, $http, $cookies) {
     $scope.username = '';
     $scope.password = '';
   };
+
+
  
-
- 
-
-
 
 
 }); // end HomeController
@@ -109,7 +114,9 @@ app.controller('SignupController', function($scope, $http) {
 
     });
   };
-});
+});   // End Signup Controller
+
+
 
 
 

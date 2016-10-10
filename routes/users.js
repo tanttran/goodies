@@ -6,6 +6,8 @@ var bcrypt = require('bcryptjs');
 
 var JWT_SECRET = 'goodies';
 
+mongoose.Promise = global.Promise;
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/goodies", function(err) {
   if(!err) {
     console.log("MONGOOSE connected");
