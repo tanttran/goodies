@@ -1,28 +1,60 @@
 body {
-  padding-top: 120px;
+  padding-top: 150px;
 }
-@media (max-width: 979px) {
+/*@media (max-width: 979px) {
   body {
     padding-top: 0px;
   }
+}*/
+
+a {
+  text-decoration: none;
 }
 
-.well {
-  margin-top: 100px;
+.mainImage {
+  background-image: url("../images/cityscape2x.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 630px;
+  height: 186px;
+  border-radius: 5px;
+}
+
+
+.signup-pitch {
+  color: #d90007;
+}
+
+.sidebar {
+  height: 800px;
+  border-left: 1px solid;
+  margin-left: 3%
+}
+
+.top-sidebar {
+  width: 100%;
+  margin-left: 3%;
+  height: 250px;
+  border-bottom: 1px solid;
+}
+
+.middle-sidebar {
+  width: 100%;
+  margin-left: 3%;
+  height: 250px;
+  border-bottom: 1px solid;
+}
+
+.bottom-sidebar {
+  width: 100%;
+  margin-left: 3%;
+  height: 250px;
+  
 }
 
 .navList {
   height: 60px;
-}
-
-.signup-pitch {
-  height: 100px;
-  border: 1px solid;
-}
-
-.signup-side {
-  height: 700px;
-  border: 1px solid;
 }
 
 .navbar-brand {
