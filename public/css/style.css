@@ -247,7 +247,15 @@ li .active {
 
 
 /* Portrait phones and smaller */
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
+
+  .location-input {
+      width: 300px;
+    }
+
+    .goodies-input {
+      width: 261px;
+    }
 
 }
 
