@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="goodies">
 <head>
+
   <base href="/">
   <title>Goodies</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
 
@@ -15,8 +16,8 @@
   <script type="text/javascript" src="js/angular-cookies.js"></script>
   <script type="text/javascript" src="/js/controller.js"></script>
   
-
 </head>
+
 <body ng-controller="HomeController">
 
   <nav class="navbar-inverse navbar-fixed-top" id="my-navbar" role="navigation">
@@ -33,12 +34,12 @@
       <div class="col-md-9"> <!-- Navbar searches -->
         <form class="navbar-form" role="search" ng-submit="searchYelp()">
           <div class="col-md-6">
-            <div class="input-group">
+            <div class="input-group goodies-input">
               <input type="text" class="form-control" size="75" placeholder="Name the Goodies" ng-model="goodies" name="srch-term" id="srch-term">
             </div>
           </div>
-          <div class="col-md-5">
-            <div class="input-group">
+          <div class="col-md-6">
+            <div class="input-group location-input">
               <input type="text" class="form-control" size="75" placeholder="City, State" ng-model="location" name="srch-term" id="srch-term">
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -48,98 +49,104 @@
         </form>
       </div> <!-- End Navbar searches -->
 
-      <div class="col-md-2">
-        <div ng-hide="currentUser" class="navbar-form" id="navbar-btn">
-          <button type="button" class="btn btn-default btn-med"><a class="navText" href="/signup">Sign up</a></button>
-          <button type="button" class="btn btn-default btn-med" data-target="#loginModal" data-toggle="modal"><a class="#" href="/">Log In</a></button>
-        </div>
-        <div ng-show="currentUser" class="navbar-form">
-          <a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" aria-hidden="true"></span> {{ currentUser }}</a>
-          <ul class="dropdown-menu">
-            <li class="user-logout"><a href="/" ng-click="userLogout()">Log out</a></li>
-            <li class="#"><a href="#">Edit Profile</a></li>
-          </ul>Í
-        </div>
-          <!-- <li class="navList" ng-hide="currentUser"><a class="navText" href="/signup">Sign up</a></li>
-          <li class="navList" data-target="#loginModal" data-toggle="modal" ng-hide="currentUser"><a class="navText" href="/">Log in</a></li> -->
+      <div class="col-md-1 col-xs-1 navbar-form" id="navbar-signup-btn" ng-hide="currentUser">  <!-- login/signup -->
+        <button type="button" class="btn btn-default"><a class="#" href="/signup">Sign up</a></button>
+      </div>
+
+      <div class="col-md-1 navbar-form" id="navbar-login-btn" ng-hide="currentUser">
+        <button type="button" class="btn btn-default" data-target="#loginModal" data-toggle="modal"><a class="#" href="/">Log In</a></button>
+      </div>
+
+      <div ng-show="currentUser" class="col-md-1 navbar-form" id="user-box">
+        <a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" aria-hidden="true"></span> {{ currentUser }}</a>
+        <ul class="dropdown-menu">
+          <li class="user-logout"><a href="/" ng-click="userLogout()">Log out</a></li>
+          <li class="#"><a href="#">Edit Profile</a></li>
+        </ul>Í
+      </div>
+          
 
         </div>
+
         <div class="row">
           <div class="col-md-8 navbar-collapse collapse mainNav" id="navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active navList"><a class="navText" href="/">Home</a></li>
+            <ul class="nav navbar-nav" id="nav-item">
+              <li class="active navList" id="homeMenu"><a class="navText" href="/">Home</a></li>
               <li class="navList"><a class="navText" href="/profile">About Me</a></li>
               <li class="navList"><a class="navText" href="/secret">Post New Trends</a></li>
-          <!-- <li class="navList" ng-hide="currentUser"><a class="navText" href="/signup">Sign up</a></li>
-          <li class="navList" data-target="#loginModal" data-toggle="modal" ng-hide="currentUser"><a class="navText" href="/">Log in</a></li> -->
 
-          <li class="navList"><a class="navText" data-toggle="dropdown" href="#">Foods</a>
-            <ul class="dropdown-menu">
-              <li class="#"><a class="#" href="#">Popular</a></li>
-              <li class="#"><a class="#" href="#">Newest</a></li>
+              <li class="navList" id="foodList"><a class="navText" data-toggle="collapse" data-target="#collapseFood" href="#">Foods</a>
+                <ul class="dropdown-menu" id="collapseFood">
+                  <li class="food-item"><a class="#" href="#">Popular</a></li>
+                  <li class="food-item"><a class="#" href="#">Newest</a></li>
+                </ul>
+              </li>
+
+              <li class="navList" id="drinkList"><a class="navText" data-toggle="collapse" data-target="#collapseDrinks">Drinks</a>
+                <ul class="dropdown-menu" id="collapseDrinks">
+                  <li class="drinks-item"><a class="#" href="#">Popular</a></li>
+                  <li class="drinks-item"><a class="#" href="#">Newest</a></li>
+                </ul>
+              </li>
+
+              <li class="navList" ng-hide="currentUser" id="navbar-signup-item"><a class="navText" href="/signup">Sign up</a></li>
+              <li class="navList" ng-hide="currentUser" data-target="#loginModal" data-toggle="modal" id="navbar-login-item"><a class="navText" href="/">Log in</a></li>
             </ul>
-          </li>
-          <li class="navList"><a class="navText" data-toggle="dropdown" href="#">Drinks</a>
-            <ul class="dropdown-menu">
-              <li class="#"><a class="#" href="#">Popular</a></li>
-              <li class="#"><a class="#" href="#">Newest</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div> <!-- End Container -->
-</nav> <!-- End Navbar -->
-
-
-
-<div class="container"> <!--Login Modal -->
-  <div class="row">
-    <div class="col-xs-12">
-
-      <div class="modal fade" id="loginModal" tabindex="-1" data-keyboard="true" data-backdrop="false" ng-hide="currentUser">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Login</h4>
-            </div>
-            <div class="modal-body">
-              <form class="" ng-submit="userLogin()">
-                <div class="input-group" id="signupUsername">
-                  <label for="inputUsername">Username</label>
-                  <input class="form-control" type="text" size="30" placeholder="Username" id="inputUsername" ng-model="username">
-                </div>
-                <br>
-                <div class="input-group" id="signupPassword">
-                  <label for="inputPassword">Password</label>
-                  <input class="form-control" type="password" size="30" placeholder="Password" id="inputPassword" ng-model="password">
-                </div>
-                <br><br>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" type="submit" id="modal-login">Login</button>
-                  <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
+      </div> <!-- End Container -->
+    </nav> <!-- End Navbar -->
+
+
+
+    <div class="container"> <!--Login Modal -->
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="modal fade" id="loginModal" tabindex="-1" data-keyboard="true" data-backdrop="false" ng-hide="currentUser">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="" ng-submit="userLogin()">
+                    <div class="input-group" id="signupUsername">
+                      <label for="inputUsername">Username</label>
+                      <input class="form-control" type="text" size="30" placeholder="Username" id="inputUsername" ng-model="username">
+                    </div>
+                    <br>
+                    <div class="input-group" id="signupPassword">
+                      <label for="inputPassword">Password</label>
+                      <input class="form-control" type="password" size="30" placeholder="Password" id="inputPassword" ng-model="password">
+                    </div>
+                    <br><br>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" type="submit" id="modal-login">Login</button>
+                      <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-    </div>
-  </div>
-</div> <!-- End Modal -->
-
-
-
-<div ng-view></div>
+    </div> <!-- End Modal -->
 
 
 
 
-<script src="js/jquery-3.1.1.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/script.js"></script>
-</body>
-</html>
+    <div ng-view></div>
+
+
+
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+  </body>
+  </html>
 
