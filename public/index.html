@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="goodies">
+<html>
 <head>
 
   <base href="/">
@@ -14,14 +14,16 @@
   <script type="text/javascript" src="js/angular.js"></script>
   <script type="text/javascript" src="js/angular-route.js"></script>
   <script type="text/javascript" src="js/angular-cookies.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script>
   <script type="text/javascript" src="/js/controller.js"></script>
   
 </head>
 
-<body ng-controller="HomeController">
+<body ng-app="goodies">
 
-  <nav class="navbar-inverse navbar-fixed-top" id="my-navbar" role="navigation">
+  <nav class="navbar-inverse navbar-fixed-top" id="my-navbar" role="navigation" ng-controller="HomeController">
     <div class="containter">
+
       <div class="col-md-1 navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
           <span class="icon-bar"></span>
@@ -31,16 +33,16 @@
         <a href="/" class="navbar-brand">Goodies</a>
       </div> <!-- Navbar header -->
 
-      <div class="col-md-9"> <!-- Navbar searches -->
+      <div class="col-md-5"> <!-- Navbar searches -->
         <form class="navbar-form" role="search" ng-submit="searchYelp()">
           <div class="col-md-6">
             <div class="input-group goodies-input">
-              <input type="text" class="form-control" size="75" placeholder="Name the Goodies" ng-model="goodies" name="srch-term" id="srch-term">
+              <input type="text" class="form-control" size="50" placeholder="Name the Goodies" ng-model="goodies" name="srch-term" id="srch-term">
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-group location-input">
-              <input type="text" class="form-control" size="75" placeholder="City, State" ng-model="location" name="srch-term" id="srch-term">
+              <input type="text" class="form-control" size="50" placeholder="City, State" ng-model="location" name="srch-term" id="srch-term">
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
               </div>
@@ -48,13 +50,25 @@
           </div>
         </form>
       </div> <!-- End Navbar searches -->
+    
+        
+          <div class="col-md-4 navbar-collapse collapse mainNav" id="navbar-collapse">
+            <ul class="nav navbar-nav" id="nav-item">
+              <li class="active navList" id="homeMenu"><a class="navText" href="/">Home</a></li>
+              <li class="navList"><a class="navText" href="/profile">About Me</a></li>
+               <li class="navList"><a class="navText" href="/foods">Food</a></li>
+              <li class="navList"><a class="navText" href="/drinks">Drinks</a></li>
+              <li class="navList" ng-hide="currentUser" id="navbar-signup-item"><a class="navText" href="/signup">Sign up</a></li>
+              <li class="navList" ng-hide="currentUser" data-target="#loginModal" data-toggle="modal" id="navbar-login-item"><a class="navText" href="/">Log in</a></li>
+            </ul>
+          </div>
 
-      <div class="col-md-1 col-xs-1 navbar-form" id="navbar-signup-btn" ng-hide="currentUser">  <!-- login/signup -->
+          <div class="col-md-1 col-xs-1 navbar-form" id="navbar-signup-btn" ng-hide="currentUser">  <!-- login/signup -->
         <button type="button" class="btn btn-default"><a class="#" href="/signup">Sign up</a></button>
       </div>
 
-      <div class="col-md-1 navbar-form" id="navbar-login-btn" ng-hide="currentUser">
-        <button type="button" class="btn btn-default" data-target="#loginModal" data-toggle="modal"><a class="#" href="/">Log In</a></button>
+      <div class="col-md-1 navbar-form" ng-hide="currentUser">
+        <button type="button" class="btn btn-default" id="navbar-login-btn" data-target="#loginModal" data-toggle="modal"><a class="#" href="/">Log In</a></button>
       </div>
 
       <div ng-show="currentUser" class="col-md-1 navbar-form" id="user-box">
@@ -64,42 +78,13 @@
           <li class="#"><a href="#">Edit Profile</a></li>
         </ul>Í
       </div>
-          
 
-        </div>
-
-        <div class="row">
-          <div class="col-md-8 navbar-collapse collapse mainNav" id="navbar-collapse">
-            <ul class="nav navbar-nav" id="nav-item">
-              <li class="active navList" id="homeMenu"><a class="navText" href="/">Home</a></li>
-              <li class="navList"><a class="navText" href="/profile">About Me</a></li>
-              <li class="navList"><a class="navText" href="/secret">Post New Trends</a></li>
-
-              <li class="navList" id="foodList"><a class="navText" data-toggle="collapse" data-target="#collapseFood" href="#">Foods</a>
-                <ul class="dropdown-menu" id="collapseFood">
-                  <li class="food-item"><a class="#" href="#">Popular</a></li>
-                  <li class="food-item"><a class="#" href="#">Newest</a></li>
-                </ul>
-              </li>
-
-              <li class="navList" id="drinkList"><a class="navText" data-toggle="collapse" data-target="#collapseDrinks">Drinks</a>
-                <ul class="dropdown-menu" id="collapseDrinks">
-                  <li class="drinks-item"><a class="#" href="#">Popular</a></li>
-                  <li class="drinks-item"><a class="#" href="#">Newest</a></li>
-                </ul>
-              </li>
-
-              <li class="navList" ng-hide="currentUser" id="navbar-signup-item"><a class="navText" href="/signup">Sign up</a></li>
-              <li class="navList" ng-hide="currentUser" data-target="#loginModal" data-toggle="modal" id="navbar-login-item"><a class="navText" href="/">Log in</a></li>
-            </ul>
-          </div>
-        </div>
       </div> <!-- End Container -->
     </nav> <!-- End Navbar -->
 
 
 
-    <div class="container"> <!--Login Modal -->
+    <div class="container" ng-controller="HomeController"> <!--Login Modal -->
       <div class="row">
         <div class="col-xs-12">
 
@@ -147,6 +132,12 @@
     <script src="js/jquery-3.1.1.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
+    <script src="/js/controllers/SignupController.js"></script>
+    <script src="/js/controllers/HomeController.js"></script>
+    <script src="/js/controllers/UserController.js"></script>
+    
+
+
   </body>
   </html>
 

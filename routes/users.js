@@ -54,7 +54,6 @@ router.post('/signup', function(req, res, next){
 });
 
 
-
 router.put('/login', function(req, res, next) {
   Users.findOne({username: req.body.username}, function(err, user) {
     if(!user) {
@@ -76,6 +75,7 @@ router.put('/login', function(req, res, next) {
       });
     });
   });
+
 
 
 

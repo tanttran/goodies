@@ -7,16 +7,5 @@ $(document).ready(function(){
 
 
 
-  
-
-
-  // $('.user-logout').on('click', function(){
-  //   $('.modal-dialog').hide();
-  // })
-
-  // $('#modal-login').on('click', function (){
-  //   $('.modal-dialog').show();
-  // })
-
 
 });
