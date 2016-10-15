@@ -33,7 +33,7 @@
         <a href="/" class="navbar-brand">Goodies</a>
       </div> <!-- Navbar header -->
 
-      <div class="col-md-5"> <!-- Navbar searches -->
+      <div class="col-md-5" id="navbar-yelp-search"> <!-- Navbar searches -->
         <form class="navbar-form" role="search" ng-submit="searchYelp()">
           <div class="col-md-6">
             <div class="input-group goodies-input">
@@ -63,8 +63,8 @@
             </ul>
           </div>
 
-          <div class="col-md-1 col-xs-1 navbar-form" id="navbar-signup-btn" ng-hide="currentUser">  <!-- login/signup -->
-        <button type="button" class="btn btn-default"><a class="#" href="/signup">Sign up</a></button>
+          <div class="col-md-1 col-xs-1 navbar-form" ng-hide="currentUser" id="signup-btn">  <!-- login/signup -->
+        <button type="button" class="btn btn-default" id="navbar-signup-btn"><a class="#" href="/signup">Sign up</a></button>
       </div>
 
       <div class="col-md-1 navbar-form" ng-hide="currentUser">
@@ -72,7 +72,7 @@
       </div>
 
       <div ng-show="currentUser" class="col-md-1 navbar-form" id="user-box">
-        <a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" aria-hidden="true"></span> {{ currentUser }}</a>
+        <a href="#" data-toggle="dropdown" id="user-icon-text"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" id="user-icon-simple" aria-hidden="true"></span> {{ currentUser }}</a>
         <ul class="dropdown-menu">
           <li class="user-logout"><a href="/" ng-click="userLogout()">Log out</a></li>
           <li class="#"><a href="#">Edit Profile</a></li>

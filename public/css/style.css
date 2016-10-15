@@ -6,14 +6,18 @@ a {
   text-decoration: none;
 }
 
-.mainImage {
+.pitchImage {
   background-image: url("../images/cityscape2x.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 650px;
+  width: 100%;
   height: 200px;
   border-radius: 5px;
+}
+
+.mainPitch {
+ 
 }
 
 
@@ -22,29 +26,22 @@ a {
 }
 
 .sidebar {
-  height: 800px;
+  height: 600px;
   border-left: 1px solid #e6e6e6;
-  margin-left: 3%
 }
 
 .top-sidebar {
   width: 100%;
-  margin-left: 3%;
-  height: 250px;
   border-bottom: 1px solid #e6e6e6;
 }
 
 .middle-sidebar {
   width: 100%;
-  margin-left: 3%;
-  height: 250px;
   border-bottom: 1px solid #e6e6e6;
 }
 
 .bottom-sidebar {
   width: 100%;
-  margin-left: 3%;
-  height: 250px;
   
 }
 
@@ -61,18 +58,9 @@ a {
   margin-left: 30px;
 }
 
-/*#navbar-btn {
-  height: 25px;
-}*/
-
 #my-navbar {
   background-color: #333;
 }
-
-/*li .active {
-  height: 25px; 
-  width: 25px;
-}*/
 
 #navbar-login-btn {
   border-radius: 15px;
@@ -86,15 +74,27 @@ a {
 }
 
 #navbar-signup-btn  a {
-  color: white;
+  color: #313131;
   text-decoration: none;
 }
 
-#navbar-signup-btn .btn-default{
-  background-color: #313131;
-  border: 1px solid #313131;
+#navbar-signup-btn {
+  border-radius: 15px;
   font-size: 13px;
   width: 70px;
+}
+
+#user-icon-text {
+  color: #9d9d9d;
+  text-decoration: none;
+}
+
+#user-icon-text:hover {
+  color: #fff;
+}
+
+#user-icon-simple {
+  margin-top: 1px;
 }
 
 
@@ -123,72 +123,103 @@ a {
     }
 
     #navbar-login-btn {
-    width: 80px;
+
   }
 
-    #navbar-signup-btn {
-      width: 80px;
-    }
+  .navList {
+    margin-left: -8px
+  }
 
 
 }
 
 /* Portrait tablets and small desktops */
 @media screen and (min-width: 768px) and (max-width: 991px) {
-    #nav-item {
-      margin-top: 8px;
+
+
+    .navbar-inverse {
+      height: 95px;
     }
 
-    #user-box {
-      float: right;
-    }
-
-    #navbar-signup-item {
+    /*#navbar-signup-item {
       display: none;
     }
 
     #navbar-login-item {
       display: none;
-    }
+    }*/
 
-    #navbar-login-btn {
-      display: none;
-      float: left;
-      /*margin-bottom: 10px;*/
+    /*#navbar-login-btn {
+      position: absolute;
+      top: -92px;
+      right: 10px;
 
     }
 
     #navbar-signup-btn {
-      display: none;
-      float: left;
-    }
+      position: absolute;
+      top: -92px;
+      right: -835px;
+    } */
 
     .location-input {
-      width: 200px;
+      width: 250px;
       float: left;
       padding-right: 10px;
-      margin-top: 16px;
     }
 
     .goodies-input {
-      width: 225px;
+      width: 285px;
       float: left;
       padding-right: 10px;
-      margin-top: 16px;
     }
 
-    .mainNav {
-      width: 100%;
+    #nav-item {
+      width: auto;
     }
+
+    #navbar-signup-btn {
+      display: none;
+    }
+
+    #navbar-login-btn {
+      display: none;
+    }
+
+    #user-box {
+    margin-top: -78px;
+    float: right;
+    /*margin-right: 50px;*/
+    }
+
+
+
 }
 
-/* Landscape phones and portrait tablets */
+
+/*@media screen and (min-width: 768px) and (max-width: 816px) {
+
+    .location-input {
+      width: 250px;
+      float: left;
+      padding-right: 10px;
+    }
+
+    .goodies-input {
+      width: 285px;
+      float: left;
+      padding-right: 10px;
+    }
+
+
+  }*/
+
+ /*Landscape phones and portrait tablets */
 @media screen and (max-width: 767px) {
 
-
-    body {
-    padding-top: 150px;
-    }
+/*    .navbar-inverse {
+      height: 110px;
+    }*/
 
     .location-input {
       width: 439px;
@@ -198,7 +229,7 @@ a {
       width: 400px;
     }
 
-    .navbar-header {
+/*    .navbar-header {
         float: none;
     }
     .navbar-toggle {
@@ -226,31 +257,14 @@ a {
         float: none;
         margin: 15px 0;
     }
-    /* since 3.1.0 */
+     since 3.1.0 
     .navbar-collapse.collapse.in { 
         display: block!important;
     }
     .collapsing {
         overflow: hidden!important;
     }
-
-    #homeMenu {
-      margin-top: 5px;
-    }
-
-    #collapseFood {
-      margin-top: -20px;
-    }
-
-    #collapseDrinks {
-      margin-top: -20px;
-    }
-
-    #user-box {
-      width: 100%;
-      margin-left: 12px;
-    }
-
+*/
     #navbar-login-btn {
       display: none;
     }
@@ -261,8 +275,12 @@ a {
 }
 
 
-/* Portrait phones and smaller */
+/*/* Portrait phones and smaller */
 @media screen and (max-width: 480px) {
+
+  #user-box {
+    margin-left: 35px;
+  }
 
   .location-input {
       width: 300px;
