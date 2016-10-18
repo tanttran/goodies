@@ -1,6 +1,6 @@
-var goodiesapp = angular.module('goodies', ['ngRoute', 'ngCookies', 'ui.bootstrap']);
+var goodiesApp = angular.module('goodies', ['ngRoute', 'ngCookies', 'ui.bootstrap']);
 
-goodiesapp.config(function($routeProvider, $locationProvider) {
+goodiesApp.config(function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
     templateUrl: './views/home.html',
@@ -33,11 +33,13 @@ goodiesapp.config(function($routeProvider, $locationProvider) {
 });
 
 
-goodiesapp.run(function($rootScope, $cookies) {
+goodiesApp.run(function($rootScope, $cookies) {
+
   if ($cookies.get('token') && $cookies.get('currentUser')) {
     $rootScope.token = $cookies.get('token');
     $rootScope.currentUser = $cookies.get('currentUser');
   }
+
 });
 
 

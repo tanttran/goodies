@@ -122,6 +122,8 @@ a {
 /* Landscape tablets and medium desktops Medium Grid */ 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
 
+
+
     #navbar-signup-item {
       display: none;
     }
@@ -136,6 +138,9 @@ a {
 
 /* Portrait tablets and small desktops SMALL grid */ 
 @media screen and (min-width: 768px) and (max-width: 991px) {
+    body {
+      padding-top: 117px;
+    }
 
     #navbar-login-btn {
       display: none;
@@ -197,7 +202,9 @@ a {
 
  /*Landscape phones and portrait tablets XS*/ 
 @media screen and (max-width: 767px) {
-
+  body {
+      padding-top: 117px;
+  }
   #user-box {
     margin-left: 30px;
   }

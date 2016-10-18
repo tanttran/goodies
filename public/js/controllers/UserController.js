@@ -1,5 +1,5 @@
 
-goodiesapp.controller('UserController', function($rootScope, $scope, $http, $cookies) {
+goodiesApp.controller('UserController', function($rootScope, $scope, $http, $cookies) {
 
 
 

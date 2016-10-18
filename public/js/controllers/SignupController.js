@@ -1,4 +1,4 @@
-goodiesapp.controller('SignupController', function($scope, $http) {
+goodiesApp.controller('SignupController', function($scope, $http) {
 
 
   $scope.userSignup = function() {

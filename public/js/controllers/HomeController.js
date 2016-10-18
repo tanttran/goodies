@@ -1,5 +1,5 @@
 
-goodiesapp.controller('HomeController', function($rootScope, $scope, $http, $cookies) {
+goodiesApp.controller('HomeController', function($rootScope, $scope, $http, $cookies) {
 
   $scope.searchYelp = function() {
     $http({
