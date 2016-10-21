@@ -1,35 +1,69 @@
-var goodiesApp = angular.module('goodies', ['ngRoute', 'ngCookies', 'ui.bootstrap']);
+var goodiesApp = angular.module('goodies', ['ui.router', 'ngCookies', 'ui.bootstrap']);
 
-goodiesApp.config(function($routeProvider, $locationProvider) {
-  $routeProvider
-  .when('/', {
-    templateUrl: './views/home.html',
-    controller: 'HomeController',
+goodiesApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: './templates/home.html',
+      controller: 'HomeController'
   })
-  .when('/profile', {
-    templateUrl: './views/profile.html',
-    controller: 'UserController',
+    .state('profile', {
+      url: '/profile',
+      templateUrl: './templates/profile.html',
+      controller: 'HomeController'
   })
-  .when('/foods', {
-    templateUrl: './views/foods.html',
-    controller: 'HomeController',
+    .state('profile.settings', {
+      url: '/settings',
+      templateUrl: './templates/profiles/settings.html',
+      controller: 'HomeController'
   })
-  .when('/drinks', {
-    templateUrl: './views/drinks.html',
-    controller: 'HomeController',
+    .state('profile.overview', {
+      url: '/overview',
+      templateUrl: './templates/profiles/overview.html',
+      controller: 'HomeController'
   })
-  .when('/signup', {
-    templateUrl: './views/signup.html',
-    controller: 'SignupController',
+    .state('profile.secrets', {
+      url: '/secrets',
+      templateUrl: './templates/profiles/secrets.html',
+      controller: 'HomeController'
   })
-  .when('/404', {
-    templateUrl: './views/404.html',
+    .state('food', {
+      url: '/foods',
+      templateUrl: './templates/foods.html',
+      controller: 'HomeController'
   })
-  .otherwise({
-    redirectTo: '/404'
-  });
+    .state('drinks', {
+      url: '/drinks',
+      templateUrl: './templates/drinks.html',
+      controller: 'HomeController'
+  })
+  // .when('/profile', {
+  //   templateUrl: './views/profile.html',
+  //   controller: 'UserController',
+  // })
+  // .when('/foods', {
+  //   templateUrl: './views/foods.html',
+  //   controller: 'HomeController',
+  // })
+  // .when('/drinks', {
+  //   templateUrl: './views/drinks.html',
+  //   controller: 'HomeController',
+  // })
+  // .when('/signup', {
+  //   templateUrl: './views/signup.html',
+  //   controller: 'SignupController',
+  // })
+  // .when('/404', {
+  //   templateUrl: './views/404.html',
+  // })
+  // .otherwise({
+  //   redirectTo: '/404'
+  // });
 
   $locationProvider.html5Mode(true);
+  $urlRouterProvider.otherwise('/');
+
 });
 
 
