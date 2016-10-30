@@ -38,6 +38,11 @@ goodiesApp.config(function($stateProvider, $urlRouterProvider, $locationProvider
       templateUrl: './templates/drinks.html',
       controller: 'HomeController'
   })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: './templates/signup.html',
+      controller: 'UserController'
+  })
   // .when('/profile', {
   //   templateUrl: './views/profile.html',
   //   controller: 'UserController',

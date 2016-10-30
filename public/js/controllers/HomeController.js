@@ -21,30 +21,30 @@ goodiesApp.controller('HomeController', function($rootScope, $scope, $http, $coo
     });
   };
 
-  $scope.userLogin = function() {
-    $http.put('/users/login', {username: $scope.username, password: $scope.password})
-    .then(function(res) {
-      console.log(res.data.token);
-      $cookies.put('token', res.data.token);
-      $cookies.put('currentUser', $scope.username);
-      $rootScope.token = res.data.token
-      $rootScope.currentUser = $scope.username;
-    }, function(err) {
-        // $scope.username = '';
-        // $scope.password = '';
-        alert('Wrong Username or Password');
+  // $scope.userLogin = function() {
+  //   $http.put('/users/login', {username: $scope.username, password: $scope.password})
+  //   .then(function(res) {
+  //     console.log(res.data.token);
+  //     $cookies.put('token', res.data.token);
+  //     $cookies.put('currentUser', $scope.username);
+  //     $rootScope.token = res.data.token
+  //     $rootScope.currentUser = $scope.username;
+  //   }, function(err) {
+  //       // $scope.username = '';
+  //       // $scope.password = '';
+  //       alert('Wrong Username or Password');
 
-      });
-  };
+  //     });
+  // };
 
-  $scope.userLogout = function() {
-    $cookies.remove('token');
-    $cookies.remove('currentUser');
-    $rootScope.token = null;
-    $rootScope.currentUser = null;
-    $scope.username = '';
-    $scope.password = '';
-  };
+  // $scope.userLogout = function() {
+  //   $cookies.remove('token');
+  //   $cookies.remove('currentUser');
+  //   $rootScope.token = null;
+  //   $rootScope.currentUser = null;
+  //   $scope.username = '';
+  //   $scope.password = '';
+  // };
 
 
 

@@ -3,32 +3,32 @@
 </div>
 
 <div class="col-lg-12">
-  <div class="col-lg-9" ng-controller="UserController">
-    <form class="" ng-submit="profileUpdate()" name="form">
+  <div class="col-lg-9" ng-controller="ProfileController">
+    <form class="" ng-submit="userProfileUpdate()" name="form">
 
-    <div class="col-lg-12 input-group">
+    <!-- <div class="col-lg-12 input-group">
         <label for="user_name">Username</label>
         <input type="text" class="form-control" size="50" placeholder="{{ currentUser }}" ng-model="user.userName" name="user-name" id="user-name" ng-blur="updateUsername()">
-      </div>
+      </div> -->
 
       <div class="col-lg-12 input-group">
         <label for="first_name">First Name</label>
-        <input type="text" class="form-control" size="50" placeholder="" ng-model="firstName" name="first-name" id="first-name">
+        <input type="text" class="form-control" size="50" placeholder="" ng-model="profile.firstName" name="first-name" id="first-name">
       </div>
 
       <div class="col-lg-12 input-group">
         <label for="first_name">Last Name</label>
-        <input type="text" class="form-control" size="50" placeholder="" ng-model="lastName" name="last-name" id="last-name">
+        <input type="text" class="form-control" size="50" placeholder="" ng-model="profile.lastName" name="last-name" id="last-name">
       </div>
 
       <div class="col-lg-12 input-group">
         <label for="first_name">Nick Name</label>
-        <input type="text" class="form-control" size="50" placeholder="" ng-model="nickName" name="nick-name" id="nick-name">
+        <input type="text" class="form-control" size="50" placeholder="" ng-model="profile.nickName" name="nick-name" id="nick-name">
       </div>
 
       <div class="col-lg-12 input-group">
         <label for="city">City</label>
-        <input type="text" class="form-control" size="50" placeholder="" ng-model="cityName" name="city-name" id="city-name">
+        <input type="text" class="form-control" size="50" placeholder="" ng-model="profile.cityName" name="city-name" id="city-name">
       </div>
 
       <button class="btn btn-default input-group" id="save-changes" type="submit">Save Changes</button>

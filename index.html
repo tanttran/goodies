@@ -1,4 +1,31 @@
-<nav class="navbar-inverse navbar-fixed-top" id="my-navbar" role="navigation" ng-controller="UserController">
+<!DOCTYPE html>
+
+<html ng-app="goodies">
+
+<head>
+
+  <base href="/">
+  <title>Goodies</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="app/css/style.css"/>
+
+  <!-- <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-cookies/angular-cookies.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+  <script type="text/javascript" src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="app/app.js"></script> -->
+
+</head>
+
+
+<body>
+
+  <nav class="navbar-inverse navbar-fixed-top" id="my-navbar" role="navigation" ng-controller="HomeController">
     <div class="containter">
 
       <div class="col-lg-1 col-md-1 col-sm-1 navbar-header">
@@ -38,7 +65,7 @@
           <li class="navList"><a class="navText" href="/foods">Food</a></li>
           <li class="navList"><a class="navText" href="/drinks">Drinks</a></li>
           <li class="navList" ng-hide="currentUser" id="navbar-signup-item"><a class="navText" href="/signup">Sign up</a></li>
-          <li class="navList" ng-hide="currentUser" data-target="#loginModal" data-toggle="modal" id="navbar-login-item"><a class="navText" href="/">Log in</a></li>
+          <li class="navList" ng-hide="currentUser" data-target="#loginModal" data-toggle="modal" id="navbar-login-item"><a class="navText" href="#">Log in</a></li>
         </ul>
       </div>
 
@@ -47,14 +74,14 @@
       </div>
 
       <div class="col-lg-1 col-md-1 col-sm-1 navbar-form" ng-hide="currentUser">
-        <button type="button" class="btn btn-default" id="navbar-login-btn" data-target="#loginModal" data-toggle="modal"><a class="#" href="/">Log In</a></button>
+        <button type="button" class="btn btn-default" id="navbar-login-btn" data-target="#loginModal" data-toggle="modal"><a class="#" href="">Log In</a></button>
       </div>
 
       <div ng-show="currentUser" class="col-lg-1 col-md-1 col-sm-1 col-xs-12 navbar-form" id="user-box">
         <a href="#" data-toggle="dropdown" id="user-icon-text"><span class="glyphicon glyphicon-user user-icon dropdown-toggle" id="user-icon-simple" aria-hidden="true"></span> {{ currentUser }}</a>
-        <ul class="dropdown-menu">
-          <li class="user-logout"><a href="/" ng-click="userLogout()">Log out</a></li>
-          <li class="#"><a href="#">Edit Profile</a></li>
+        <ul class="dropdown-menu" ng-controller="NavigationController">
+          <li class="user-logout"><a href="/" ng-click="logUserOut()">Log out</a></li>
+          <!-- <li class="#"><a href="#">Edit Profile</a></li> -->
         </ul>Í
       </div>
 
@@ -63,7 +90,7 @@
 
 
 
-  <div class="container" ng-controller="UserController"> <!--Login Modal -->
+  <div class="container" ng-controller="NavigationController"> <!--Login Modal -->
     <div class="row">
       <div class="col-xs-12">
 
@@ -75,15 +102,15 @@
                 <h4 class="modal-title">Login</h4>
               </div>
               <div class="modal-body">
-                <form class="" ng-submit="userLogin()">
+                <form class="" ng-submit="logUserIn()">
                   <div class="input-group" id="signupUsername">
                     <label for="inputUsername">Username</label>
-                    <input class="form-control" type="text" size="30" placeholder="Username" id="inputUsername" ng-model="username">
+                    <input class="form-control" type="text" size="30" placeholder="Username" id="inputUsername" ng-model="login.username">
                   </div>
                   <br>
                   <div class="input-group" id="signupPassword">
                     <label for="inputPassword">Password</label>
-                    <input class="form-control" type="password" size="30" placeholder="Password" id="inputPassword" ng-model="password">
+                    <input class="form-control" type="password" size="30" placeholder="Password" id="inputPassword" ng-model="login.password">
                   </div>
                   <br><br>
                   <div class="modal-footer">
@@ -99,3 +126,30 @@
       </div>
     </div>
   </div> <!-- End Modal -->
+
+  <div ui-view></div>
+
+
+  
+
+</body>
+
+<script src="app/script/jquery-3.1.1.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="app/script/script.js"></script>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-cookies/angular-cookies.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+<script type="text/javascript" src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="app/app.js"></script>
+
+<!-- Controllers -->
+<script src="app/home/home-controller.js"></script>
+<script src="app/signup/signup-controller.js"></script>
+<script src="app/navigation/navigation-controller.js"></script>
+<script src="app/aboutme/ProfileController.js"></script>
+
+<!-- Libraries -->
+
+</html>

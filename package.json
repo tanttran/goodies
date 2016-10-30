@@ -17,12 +17,15 @@
   },
   "homepage": "https://github.com/tanttran/goodies#readme",
   "dependencies": {
+    "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-ui-bootstrap": "^2.2.0",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.0",
     "mongoose": "^4.6.2",
-    "multer": "^1.2.0",
     "request": "^2.75.0",
     "yelp": "^1.0.1"
   }

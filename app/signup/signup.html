@@ -1,0 +1,22 @@
+<div class="well" ng-controller="SignUpController">
+<form class="" ng-submit="createNewUser()" name="form">
+    <div class="input-group" id="signupUsername">
+      <input class="form-control" type="text" size="30" placeholder="Username" ng-model="newUser.username">
+    </div>
+    <br>
+    <div class="input-group" id="signupPassword">
+      <input class="form-control" type="password" size="30" placeholder="Password" ng-model="newUser.password">
+    </div>
+    <br>
+    <div class="input-group" id="confirmPassword">
+      <input class="form-control" type="password" size="30" placeholder="Confirm Password" ng-model="newUser.confirmPassword" nx-equal="password" name="verify">
+      <span ng-show="form.verify.$error.nxEqual">Must be equal!</span>
+    </div>
+    <br>
+    <div class="input-group" id="signupEmail">
+      <input class="form-control" type="email" size="30" placeholder="Email" ng-model="newUser.email">
+    </div>
+    <br><br>
+    <button class="btn btn-default btn-lg input-group" id="signupButton" type="submit">Sign up</button>
+  </form>
+</div>

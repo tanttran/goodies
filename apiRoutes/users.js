@@ -3,10 +3,13 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var jwt = require('jwt-simple');
 var bcrypt = require('bcryptjs');
+var bodyParser = require('body-parser');
 
-var JWT_SECRET = 'goodies';
 
 mongoose.Promise = global.Promise;
+router.use(bodyParser.json());
+
+var JWT_SECRET = 'goodies';
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/goodies", function(err) {
   if(!err) {
@@ -15,14 +18,28 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/goodies",
 });
 
 var userSchema = new mongoose.Schema({
+
   username: String,
   password: String,
+  firstName: String,
+  email: String,
+  created: { type: Date, default: Date.now }
+
+});
+
+var userInfoSchema = new mongoose.Schema({
+
+  firstName: String,
+  lastName: String,
+  nickName: String,
+  city: String,
   email: String,
   created: { type: Date, default: Date.now }
 
 });
 
 var Users = mongoose.model('users', userSchema);
+var UserInfo = mongoose.model('userinfos', userInfoSchema);
 
 var authorized = function (req, res, next) {
   var token = req.headers.authorization;
@@ -53,6 +70,25 @@ router.post('/signup', function(req, res, next){
   });
 });
 
+// router.post('/users/updateUsername', UserController.updateUsername)  
+
+
+// router.post('/userinfo', authorized, function(req, res, next){
+
+//   var userProfile = new UserInfo ({
+//     firstName: req.body.firstName,
+//     lastName: req.body.lastName,
+//     nickName: req.body.nickName,
+//     city: req.body.cityName
+//   });
+
+//   userProfile.save(function(err) {
+//     if (err) return res.status(400).send(err);
+//     return res.send();
+//   });
+
+// });
+
 
 router.put('/login', function(req, res, next) {
   Users.findOne({username: req.body.username}, function(err, user) {
@@ -75,6 +111,22 @@ router.put('/login', function(req, res, next) {
       });
     });
   });
+
+
+// router.put('/update', authorized, function(req, res, next){
+
+//   var id = req.params.id;
+
+//   Users.update({ _id: mongoose.Types.ObjectId(id) }, {
+//     $set: { username: req.body.userName }
+
+//   }, function(err) {
+//     if (err) { console.log(err); }
+//     res.send('items update');
+
+//   });
+
+// });
 
 
 
