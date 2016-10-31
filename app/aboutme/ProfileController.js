@@ -8,7 +8,7 @@ goodiesApp.controller('ProfileController', ['$scope', '$state', '$http', functio
       firstName: $scope.profile.firstName,
       lastName: $scope.profile.lastName,
       nickName: $scope.profile.nickName,
-      city: $scope.profile.cityName
+      cityName: $scope.profile.cityName,
     }
     console.log(request);
     $http.post('api/profile/update', request).success(function(){

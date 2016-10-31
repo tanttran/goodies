@@ -6,23 +6,24 @@ module.exports.updateProfile = function(req, res){
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
   var nickName = req.body.nickName;
-  var city = req.body.cityName;
-  var id = req.params.id;
+  var cityName = req.body.cityName;
+  var userId = req.body.userId;
 
 
-  User.findById({ _id: mongoose.Types.ObjectId(id) }, function(err, userData){
+  User.findById(userId, function(err, userData){
+    console.log(userData);
     var user = userData;
-    user.firstName = firstName,
-    user.lastName = lastName,
-    user.nickName = nickName,
-    user.cityName = city
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.nickName = nickName;
+    user.city = cityName;
 
     user.save(function(err){
       if (err){
-        console.log('username fail');
+        console.log('profile update fail');
         res.json({status: 500})
       } else {
-        console.log('username success');
+        console.log('profile update success');
         res.json({status: 200});
       }
     })
